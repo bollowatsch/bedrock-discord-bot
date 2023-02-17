@@ -34,6 +34,7 @@ client.once(Events.ClientReady, c => {
 
 // Eventhandler for slashcommand interactions
 client.on(Events.InteractionCreate, interaction => {
+	if (!interaction.isChatInputCommand()) return;
 	console.log(interaction);
 });
 
