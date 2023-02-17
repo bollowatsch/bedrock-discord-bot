@@ -32,5 +32,10 @@ client.once(Events.ClientReady, c => {
 	console.log(`Ready! Logged in as ${c.user.tag}`);
 });
 
+// Eventhandler for slashcommand interactions
+client.on(Events.InteractionCreate, interaction => {
+	console.log(interaction);
+});
+
 // Log in to Discord with your client's token
 client.login(token);
