@@ -1,6 +1,5 @@
 // load .env confoguration
 require('dotenv').config()
-console.log(process.env) // remove this after you've confirmed it is working
 
 // Require the necessary discord.js classes
 const { Client, Events, GatewayIntentBits } = require('discord.js');
