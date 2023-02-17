@@ -1,0 +1,19 @@
+{
+  "name": "bedrock-discord-bot",
+  "version": "1.0.0",
+  "description": "discord bot for sending commands to docker bedrock server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bollowatsch/bedrock-discord-bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bollowatsch/bedrock-discord-bot/issues"
+  },
+  "homepage": "https://github.com/bollowatsch/bedrock-discord-bot#readme"
+}
