@@ -11,7 +11,10 @@ fs.watch('log.txt',(curr, prev) => {
 
     fs.readFile(process.env.LOGFILEPATH,{encoding: 'utf-8'}, (err, data) => {
         let lastLine = data.trim().split('\n')[data.trim().split('\n').length - 1];
-        if(lastLine.includes('connected')) console.log(cleanUpLine(lastLine));
+        if(lastLine.includes('connected')) {
+            console.log(cleanUpLine(lastLine));
+            
+        }
      })
   });
 
