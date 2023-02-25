@@ -41,3 +41,18 @@ for (const file of eventFiles) {
 
 // Log in to Discord with your client's token
 client.login(token);
+
+//for testing purpose
+fs.watch(process.env.LOGFILEPATH,(curr, prev) => {
+    fs.readFile(process.env.LOGFILEPATH,{encoding: 'utf-8'}, (err, data) => {
+        let lastLine = data.trim().split('\n')[data.trim().split('\n').length - 1];
+		// log last line of logfile to console
+		console.log("The log file has been updated: " + lastLine);
+        if(lastLine.includes('disconnected')) client.channels.cache.get(process.env.CHANNEL_ID).send(cleanUpLine(lastLine) + ' ist offline!');   
+		else if(lastLine.includes('connected')) client.channels.cache.get(process.env.CHANNEL_ID).send(cleanUpLine(lastLine) + ' ist online!');
+     })
+  });
+
+function cleanUpLine(lastLine){
+    return lastLine.slice(lastLine.indexOf('connected:') + 11,lastLine.indexOf("xuid")-2);
+}
