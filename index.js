@@ -43,9 +43,9 @@ for (const file of eventFiles) {
 client.login(token);
 
 //for testing purpose
-fs.watch(process.env.LOGFILEPATH,(curr, prev) => {
-	const logfilePath = `/var/lib/docker/containers/${process.env.DOCKER_ID}/`
-    fs.readFile(process.env.LOGFILEPATH,{encoding: 'utf-8'}, (err, data) => {
+const logfilePath = `/var/lib/docker/containers/${process.env.DOCKER_ID}/${process.env.DOCKER_ID}-json.log`
+fs.watch(logfilePath,(curr, prev) => {
+    fs.readFile(logfilePath,{encoding: 'utf-8'}, (err, data) => {
         let lastLine = data.trim().split('\n')[data.trim().split('\n').length - 1];
 		// log last line of logfile to console
 		console.log("The log file has been updated: " + lastLine);
